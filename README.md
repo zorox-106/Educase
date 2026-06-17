@@ -1,5 +1,7 @@
 # PopX App
 
+**Live Demo → [educase-ten-mu.vercel.app](https://educase-ten-mu.vercel.app/)**
+
 A React + Vite single-page app replicating the PopX mobile UI — featuring sign up, login, and account settings with localStorage-based session persistence.
 
 ## Stack
