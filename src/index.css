@@ -1,0 +1,476 @@
+:root {
+  --primary: #5F2EEA;
+  --primary-hover: #4A1FD0;
+  --secondary: #DDDCF7;
+  --secondary-hover: #C5C2F3;
+  --text-dark: #1D2229;
+  --text-muted: #6C7A9C;
+  --text-hint: #B1B8C9;
+  --bg-page: #F7F8FC;
+  --bg-white: #FFFFFF;
+  --border: #D8D9E0;
+  --error: #ED2E7E;
+  --success: #00BA88;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-card {
+  width: 375px;
+  height: 780px;
+  background: var(--bg-white);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-white);
+  animation: enter 0.22s ease both;
+}
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px 0;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dark);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.btn-back:hover {
+  background: rgba(95, 46, 234, 0.07);
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.page-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 16px rgba(95, 46, 234, 0.25);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-hover);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* ── Landing ── */
+
+.landing-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+  gap: 40px;
+}
+
+.landing-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.landing-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Forms (Signup & Login) ── */
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.form-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-field input {
+  width: 100%;
+  height: 52px;
+  padding: 18px 14px 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-dark);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-field input:focus {
+  border-color: var(--primary);
+}
+
+.input-field label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--text-hint);
+  background: var(--bg-white);
+  padding: 0 2px;
+  pointer-events: none;
+  transition: top 0.15s, font-size 0.15s, color 0.15s, transform 0.15s;
+}
+
+.input-field.active label,
+.input-field input:focus + label {
+  top: 0px;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.input-field.has-error input {
+  border-color: var(--error);
+}
+
+.input-field.has-error label {
+  color: var(--error);
+}
+
+.input-field.active.has-error label {
+  color: var(--error);
+}
+
+.error-text {
+  display: block;
+  font-size: 11px;
+  color: var(--error);
+  margin-top: 4px;
+  padding-left: 2px;
+}
+
+.required {
+  color: var(--error);
+  margin-left: 1px;
+}
+
+.radio-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-section-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.radio-options {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-left: 26px;
+}
+
+.radio-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-circle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  transition: border-color 0.15s;
+}
+
+.radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 3.5px;
+  left: 3.5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.radio-option input:checked ~ .radio-circle {
+  border-color: var(--primary);
+}
+
+.radio-option input:checked ~ .radio-circle::after {
+  opacity: 1;
+}
+
+.btn-submit {
+  margin-top: auto;
+}
+
+/* ── Profile ── */
+
+.profile-topbar {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.profile-topbar-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-user-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--secondary);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: block;
+}
+
+.avatar-edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 2px solid var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+}
+
+.avatar-edit-btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.profile-bio {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.profile-actions {
+  margin-top: auto;
+}
+
+/* ── Toast ── */
+
+.toast {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(-36px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success { background: var(--success); }
+.toast.error   { background: var(--error); }
+
+/* ── Responsive ── */
+
+@media (max-width: 420px) {
+  body {
+    background: var(--bg-white);
+  }
+
+  .app-card {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
